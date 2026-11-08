@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Diwali 🪔</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #18020a;
+    overflow-x: hidden;
+}
+
+#intro {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    overflow: hidden;
+    background: linear-gradient(
+        to bottom,
+        #74070b,
+        #d7191c,
+        #a0090e,
+        #560308
+    );
+}
+
+.side-lights {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 45px;
+    z-index: 1;
+    background-image:
+        radial-gradient(
+            circle,
+            #ffe36e 0px,
+            #ffc107 9px,
+            rgba(255, 120, 0, 0.3) 14px,
+            transparent 20px
+        );
+
+    background-size: 45px 65px;
+    background-repeat: repeat-y;
+
+    filter: drop-shadow(0 0 8px orange);
+}
+
+.left-lights {
+    left: 0;
+}
+
+.right-lights {
+    right: 0;
+}
+
+.curtain {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 3;
+
+    background-color: #8d0808;
+
+    background-image:
+        radial-gradient(
+            circle,
+            #ffe06b 0 7px,
+            #ffb000 8px 13px,
+            #9d5600 14px 18px,
+            transparent 19px
+        ),
+        linear-gradient(
+            90deg,
+            #5d0305,
+            #c91717,
+            #ef3a19,
+            #8c0507
+        );
+
+    background-size: 45px 45px, 100% 100%;
+
+    box-shadow:
+        inset 0 0 35px #3b0000,
+        0 0 20px rgba(0,0,0,0.5);
+}
+
+.curtain-left {
+    left: 0;
+    animation: openLeft 2.4s ease-in-out forwards;
+}
+
+.curtain-right {
+    right: 0;
+    animation: openRight 2.4s ease-in-out forwards;
+}
+
+@keyframes openLeft {
+    0%, 30% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes openRight {
+    0%, 30% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.diwali-title {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.3);
+
+    width: 100%;
+    text-align: center;
+
+    font-size: clamp(55px, 13vw, 105px);
+    font-weight: bold;
+    line-height: 1.15;
+
+    color: #ffd66b;
+
+    text-shadow:
+        3px 4px 0 #6d0b13,
+        6px 8px 0 #430207,
+        0 0 18px #ffb300;
+
+    opacity: 0;
+    z-index: 2;
+
+    animation: titleAppear 1.5s ease-out 2.3s forwards;
+}
+
+@keyframes titleAppear {
+
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.3);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+#main-content {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 15px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #4a123e,
+            #210518 65%,
+            #100108
+        );
+
+    position: relative;
+}
+
+#main-content::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 5% 10%,
+            rgba(255, 200, 50, 0.9) 0 8px,
+            transparent 18px
+        ),
+        radial-gradient(
+            circle at 95% 20%,
+            rgba(255, 40, 110, 0.8) 0 8px,
+            transparent 18px
+        );
+
+    background-size: 100% 80px;
+
+    opacity: 0.7;
+}
+.card {
+    width: min(92%, 500px);
+
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    padding: 28px 22px 30px;
+
+    border-radius: 38px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #ffe6a5,
+            #f9b34a,
+            #f77838
+        );
+
+    border: 5px solid rgba(255, 255, 255, 0.8);
+
+    box-shadow:
+        0 0 30px rgba(255, 190, 60, 0.7),
+        0 15px 50px rgba(0, 0, 0, 0.6);
+}
+
+.card h1 {
+    color: #bd1025;
+    font-size: clamp(30px, 8vw, 43px);
+    margin-bottom: 4px;
+}
+
+.card h2 {
+    color: #bd1025;
+    font-size: clamp(32px, 9vw, 45px);
+    margin-bottom: 25px;
+}
+
+.message {
+    background: #fff9e9;
+
+    border: 3px solid #c99b56;
+    border-radius: 25px;
+
+    padding: 28px 18px;
+
+    color: #4b2525;
+
+    font-size: clamp(17px, 4.5vw, 22px);
+    line-height: 1.45;
+
+    box-shadow:
+        inset 0 0 12px rgba(255, 210, 120, 0.4);
+}
+
+.signature {
+    margin-top: 15px;
+
+    color: #bd1025;
+
+    font-size: clamp(20px, 5vw, 27px);
+    font-weight: bold;
+}
+
+#wish {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 17px;
+
+    border-radius: 35px;
+
+    border: 3px solid #e6b7ac;
+
+    text-align: center;
+
+    font-size: 18px;
+
+    color: #555;
+
+    outline: none;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+button {
+    border: none;
+
+    padding: 15px 22px;
+
+    margin: 8px 4px;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #d92b3d,
+            #a7071b
+        );
+
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 0 #5b0711,
+        0 10px 15px rgba(0,0,0,0.25);
+
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.04);
+}
+
+button:active {
+    transform: translateY(5px);
+
+    box-shadow:
+        0 2px 0 #5b0711;
+}
+
+.main-button {
+    display: inline-block;
+}
+
+.footer {
+    margin-top: 25px;
+
+    color: #712c2c;
+
+    font-size: 16px;
+}
+
+.firework {
+    position: fixed;
+
+    z-index: 10000;
+
+    font-size: 45px;
+
+    pointer-events: none;
+
+    animation: fireworkPop 1.2s ease-out forwards;
+}
+
+@keyframes fireworkPop {
+
+    0% {
+        opacity: 1;
+        transform: scale(0.2) rotate(0deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(2.5) rotate(180deg);
+    }
+}
+
+.lantern {
+    position: fixed;
+
+    bottom: -100px;
+
+    z-index: 10001;
+
+    font-size: 60px;
+
+    pointer-events: none;
+
+    animation: lanternFly 5s linear forwards;
+}
+
+@keyframes lanternFly {
+
+    0% {
+        bottom: -100px;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    100% {
+        bottom: 110vh;
+        opacity: 0;
+        transform: translateX(80px);
+    }
+}
+
+@media (max-width: 480px) {
+
+    #main-content {
+        padding: 20px 10px;
+    }
+
+    .card {
+        padding: 25px 15px;
+    }
+
+    button {
+        padding: 14px 16px;
+        font-size: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="intro">
+
+    <!-- Side lights -->
+    <div class="side-lights left-lights"></div>
+    <div class="side-lights right-lights"></div>
+
+    <!-- Diwali Title -->
+    <div class="diwali-title">
+        शुभ<br>
+        दीपावली
+    </div>
+
+    <!-- Curtains -->
+    <div class="curtain curtain-left"></div>
+    <div class="curtain curtain-right"></div>
+
+</div>
+
+
+<div id="main-content">
+
+    <div class="card">
+
+        <!-- Change names here -->
+        <h1 id="personName">Annu Kashyap,</h1>
+        <h2>शुभ दीपावली</h2>
+
+        <div class="message">
+
+            Dear <span id="messageName">Annu Kashyap</span>,
+            <br><br>
+
+            May your home glow brighter than a thousand diyas,
+            your sky fill with colour, and every wish rise
+            higher than the rockets.
+
+            <br><br>
+
+            Happy Diwali!
+
+            <div class="signature">
+                — Nihal Kumar
+            </div>
+
+        </div>
+
+        <!-- Wish input -->
+        <input
+            type="text"
+            id="wish"
+            placeholder="Whisper a wish for the sky"
+        >
+
+        <!-- Buttons -->
+        <div class="buttons">
+
+            <button
+                class="main-button"
+                onclick="releaseLantern()"
+            >
+                🏮 Release lantern
+            </button>
+
+            <br>
+
+            <button onclick="copyLink()">
+                🔗 Copy link
+            </button>
+
+            <button onclick="moreFireworks()">
+                🎆 More fireworks
+            </button>
+
+        </div>
+
+        <div class="footer">
+            Made with ✨ by Your Diwali Wishes
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+setTimeout(function () {
+
+    const intro = document.getElementById("intro");
+
+    intro.style.transition = "opacity 1s ease";
+    intro.style.opacity = "0";
+
+    setTimeout(function () {
+        intro.style.display = "none";
+    }, 1000);
+
+}, 5200);
+
+function releaseLantern() {
+
+    const wishInput = document.getElementById("wish");
+    const wish = wishInput.value.trim();
+
+    if (wish === "") {
+        alert("Please write a wish first! 🪔");
+        return;
+    }
+
+    const lantern = document.createElement("div");
+
+    lantern.className = "lantern";
+    lantern.innerHTML = "🏮";
+
+    lantern.style.left =
+        Math.floor(Math.random() * 70 + 15) + "%";
+
+    document.body.appendChild(lantern);
+
+    setTimeout(function () {
+        alert("Your wish has been released into the sky! ✨🪔\n\nWish: " + wish);
+    }, 1000);
+
+    setTimeout(function () {
+        lantern.remove();
+    }, 5000);
+
+    wishInput.value = "";
+}
+
+function moreFireworks() {
+
+    const fireworks = ["🎆", "✨", "🎇", "💥", "🌟"];
+
+    for (let i = 0; i < 18; i++) {
+
+        setTimeout(function () {
+
+            const firework =
+                document.createElement("div");
+
+            firework.className = "firework";
+
+            firework.innerHTML =
+                fireworks[
+                    Math.floor(
+                        Math.random() * fireworks.length
+                    )
+                ];
+
+            firework.style.left =
+                Math.random() * 90 + "%";
+
+            firework.style.top =
+                Math.random() * 85 + "%";
+
+            document.body.appendChild(firework);
+
+            setTimeout(function () {
+                firework.remove();
+            }, 1200);
+
+        }, i * 130);
+    }
+}
+
+
+function copyLink() {
+
+    navigator.clipboard
+        .writeText(window.location.href)
+        .then(function () {
+
+            alert("Link copied successfully! 🔗✨");
+
+        })
+        .catch(function () {
+
+            alert("Unable to copy the link.");
+
+        });
+}
+
+</script>
+
+</body>
+</html>
